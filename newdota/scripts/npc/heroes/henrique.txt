@@ -3,7 +3,7 @@
     "override_hero"     "npc_dota_hero_antimage"
     "AbilityLayout"     "4"
     "Ability1"        "henrique_dash" 
-    "Ability2"        "" 
+    "Ability2"        "henrique_lifesteal" 
     "Ability3"        "" 
     "Ability4"        ""
     "Ability5"        ""

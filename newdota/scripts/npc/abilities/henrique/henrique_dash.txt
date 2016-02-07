@@ -5,8 +5,8 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-	"AbilityDamage"					"40 70 100 120"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	"AbilityDamage"					"60 90 120 140"
 	
 
 	"AbilityCastRange"				"%range"
@@ -221,7 +221,7 @@
 						"Damage"
 						{
 							"Target"		"TARGET"
-							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Type"			"DAMAGE_TYPE_PHYSICAL"
 							"Damage"		"%AbilityDamage"
 						}
 					}
