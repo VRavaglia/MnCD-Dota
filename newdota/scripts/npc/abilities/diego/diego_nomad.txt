@@ -1,0 +1,99 @@
+"diego_nomad"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"nevermore_necromastery"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityType"            		"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"damage_per_charge"  	"2.5 5.0 7.5 10.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"cooldown"			"5 5 5 5"
+		}
+
+	}
+	"Modifiers"
+	{
+		"diego_nomad_counter"
+		{
+			"TextureName"		"nevermore_necromastery"
+			"Passive"			"1"
+			"IsPurgable"		"0"
+			"IsHidden"			"0"
+
+			"OnCreated"
+			{
+				"ApplyModifier"
+				{
+					"Target"  		"CASTER"
+					"ModifierName"	"diego_nomad_timer"
+				}
+			}
+			"OnAttackLanded"
+			{
+				"RemoveModifier"
+				{
+					"Target"		"CASTER"
+					"ModifierName"	"diego_nomad_timer"
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/diego/diego_nomad.lua"
+					"Function"		"Damage"
+				}
+				"ApplyModifier"
+				{
+					"ModifierName"	"diego_nomad_cooldown"
+					"Target" 		"CASTER"
+					"Duration"		"%cooldown"
+				}
+				"RunScript"
+   				{
+   					"Target"		"TARGET"
+					"ScriptFile"	"abilities/diego/diego_midas"
+					"Function"		"midas"
+   				}
+			}
+		}
+		"diego_nomad_timer"
+		{
+			"IsPurgable"		"0"
+			"IsHidden"			"1"
+
+			"ThinkInterval" "0.5"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/diego/diego_nomad.lua"
+					"Function"		"Charge"
+				}
+			}
+
+		}
+		"diego_nomad_cooldown"
+		{
+			"IsPurgable"		"0"
+			"ISHidden"			"1"
+
+			"OnDestroy"
+			{
+				"ApplyModifier"
+				{
+					"Target"  		"CASTER"
+					"ModifierName"	"diego_nomad_timer"
+				}
+			}		
+		}
+	}	
+
+}	
