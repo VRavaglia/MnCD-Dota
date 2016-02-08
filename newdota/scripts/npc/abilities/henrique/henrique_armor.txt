@@ -1,0 +1,86 @@
+"henrique_armor"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"ember_spirit_fire_remnant"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+	
+
+	"AbilityCooldown"				"5.0 5.0 5.0 5.0"
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"cooldown"  		"5.0 5.0 5.0 5.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"armor"				"-4 -5 -6 -7"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"attackspeed"		"60 80 100 120"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration"			"3.0 3.0 3.0 3.0"
+		}
+	}
+
+	
+	"Modifiers"
+	{
+		"henrique_armor_buff"
+		{
+			"TextureName"		"ember_spirit_fire_remnant"
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+	
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
+				
+			}
+		}
+		"henrique_armor_debuff"
+		{
+			"TextureName"		"ember_spirit_fire_remnant"
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+			"IsPurgable"		"1"
+	
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+			}
+		}
+		"henrique_armor_passive"
+		{
+			"TextureName"		"ember_spirit_fire_remnant"
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+			"IsPurgable"		"0"
+
+			"OnAttackLanded"
+			{		
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/henrique/henrique_armor.lua"
+					"Function"		"cooldown"
+				}
+			}
+		}
+	}
+}		
+
+
+
+
