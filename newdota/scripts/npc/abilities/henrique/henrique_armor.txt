@@ -1,7 +1,7 @@
 "henrique_armor"
 {
 	"BaseClass"             		"ability_datadriven"
-	"AbilityTextureName"			"ember_spirit_fire_remnant"
+	"AbilityTextureName"			"henrique_armor"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
 	
 

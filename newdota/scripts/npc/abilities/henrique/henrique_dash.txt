@@ -1,7 +1,7 @@
 "henrique_dash"
 {
 	"BaseClass"             		"ability_datadriven"
-	"AbilityTextureName"			"ember_spirit_activate_fire_remnant"
+	"AbilityTextureName"			"henrique_dash"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -19,7 +19,7 @@
 
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
+		"particle"  "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 
 	}
 	
@@ -134,8 +134,23 @@
 			"IsPurgable"		"0"
 			"ThinkInterval"  "0.02"
 			"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+
 			"OnIntervalThink"
 			{
+				"AttachEffect"
+			    {
+		        "EffectName"      			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		        "EffectAttachType"    		"follow_origin"
+		        "EffectRadius"      		"100"
+		        "EffectDurationScale" 		"1"
+		        "EffectLifeDurationScale" 	"1"
+		        "EffectColorA"      		"50 255 255"
+		        "EffectColorB"      		"50 255 255"
+		        "Target"      				"CASTER"
+     		    }
+
+
 				"RunScript"
 				{
 					"Caster"		"CASTER"
@@ -145,6 +160,17 @@
 			}
 			"OnDestroy"
 			{
+				"AttachEffect"
+			    {
+		        "EffectName"      			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		        "EffectAttachType"    		"follow_origin"
+		        "EffectRadius"      		"100"
+		        "EffectDurationScale" 		"1"
+		        "EffectLifeDurationScale" 	"1"
+		        "EffectColorA"      		"50 255 255"
+		        "EffectColorB"      		"50 255 255"
+		        "Target"      				"CASTER"
+     		    }
 				"ApplyModifier"
 				{
 					"ModifierName"	"henrique_dash_damage"
@@ -203,7 +229,6 @@
 			"IsHidden"			"0"
 			"IsDebuff"			"0"
 			"IsPurgable"		"0"
-			"ThinkInterval"  "0.5"
 			"OnAttackLanded"
 			{
 				"ActOnTargets"
@@ -228,13 +253,14 @@
 				}
 				"AttachEffect"
 				{
-					"EffectName"        "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf"
-					"EffectAttachType"  "follow_origin"
-					"Target"            "TARGET"
-					"ControlPoints"
-					{
-						"00" "0 0 0"
-					}
+					"EffectName"      			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		        	"EffectAttachType"    		"follow_origin"
+			        "EffectRadius"      		"%radius"
+			        "EffectDurationScale" 		"1"
+			        "EffectLifeDurationScale" 	"1"
+			        "EffectColorA"      		"50 255 255"
+			        "EffectColorB"      		"50 255 255"
+			        "Target"      				"TARGET"
 				}
 			}
 		}		

@@ -1,7 +1,7 @@
 "henrique_lifesteal"
 {
 	"BaseClass"             		"ability_datadriven"
-	"AbilityTextureName"			"ember_spirit_sleight_of_fist"
+	"AbilityTextureName"			"henrique_lifesteal"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -23,7 +23,7 @@
 
 	"precache"
 	{
-	//	"particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
+		"particle"          "particles/units/heroes/hero_troll_warlord/troll_warlord_battletrance_buff.vpcf"
 
 	}
 	
@@ -78,8 +78,8 @@
 
 					}
 		
-				//"EffectName"		"particle_name"
-				//"EffectAttachType"	"follow_origin"
+				"EffectName"        "particles/units/heroes/hero_troll_warlord/troll_warlord_battletrance_buff.vpcf"
+            	"EffectAttachType"  "follow_origin"
 		
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation

@@ -1,7 +1,7 @@
 "henrique_aura"
 {
 	"BaseClass"             		"ability_datadriven"
-	"AbilityTextureName"			"ember_spirit_flame_guard"
+	"AbilityTextureName"			"henrique_aura"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -49,9 +49,25 @@
 		}
 
 	}
+	"precache"
+	{
+		"particle"  "particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+		"particle"  "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+	}
 
 	"OnSpellStart"
 	{
+		"AttachEffect"
+				{
+					"EffectName"      			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		        	"EffectAttachType"    		"follow_origin"
+			        "EffectRadius"      		"%radius"
+			        "EffectDurationScale" 		"1"
+			        "EffectLifeDurationScale" 	"1"
+			        "EffectColorA"      		"50 255 255"
+			        "EffectColorB"      		"50 255 255"
+			        "Target"      				"CASTER"
+				}
 		"ApplyModifier"
 		{
 			"ModifierName"	"henrique_aura_buff"
@@ -89,8 +105,8 @@
 			"IsDebuff"			"0"
 			"IsPurgable"		"0"
 	
-			//"EffectName"		"particle_name"
-			//"EffectAttachType"	"follow_origin"
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+			"EffectAttachType"	"follow_origin"
 
 			"Properties"
             {
@@ -106,6 +122,9 @@
 			"IsDebuff"			"1"
 			"IsStunDebuff"		"0"
 			"Passive"			"0"
+
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+			"EffectAttachType"	"follow_origin"
 
 			"OnDealDamage"
 			// "%attack_damage" is set to the damage value after mitigation
@@ -137,6 +156,9 @@
 			"IsDebuff"			"1"
 			"IsStunDebuff"		"0"
 			"Passive"			"0"
+
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_iron_surge_ambient_fire.vpcf"
+			"EffectAttachType"	"follow_origin"
 
 			"Properties"
 			{

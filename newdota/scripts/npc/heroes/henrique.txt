@@ -4,8 +4,8 @@
     "AbilityLayout"     "4"
     "Ability1"        "henrique_dash" 
     "Ability2"        "henrique_lifesteal" 
-    "Ability3"        "" 
-    "Ability4"        ""
+    "Ability3"        "henrique_armor" 
+    "Ability4"        "henrique_aura"
     "Ability5"        ""
 
 

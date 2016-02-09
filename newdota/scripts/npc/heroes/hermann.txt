@@ -5,7 +5,8 @@
     "Ability1"        "" 
     "Ability2"        "" 
     "Ability3"        "" 
-    "Ability4"        "hermann_gamble"
+    "Ability4"        ""
+    "Ability6"        "hermann_totem"
 
 
 
