@@ -1,0 +1,125 @@
+"arcano_splash"
+{
+	"BaseClass"            			"ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"            "invoker_cold_snap"
+    "AbilityCastRange"              "600"
+    "AbilityManaCost"				"0"
+    "AOERadius"						"%radius"
+
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"int_as_damage"  	"20 40 60 80"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"base_damage"		"20 40 60 80"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"400 400 400 400"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"projectile_speed"	"900 900 900 900"
+		}
+
+	}
+
+	"precache"
+    {
+        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+        "particle"      "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+        "particle"  	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_base_attack.vpcf"
+    }
+    "OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+		
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/arcano/arcano_splash.lua"
+			"Function"		"projectile_hit"
+		}
+	}
+
+    "Modifiers"
+    {
+    	"arcano_splash_passive"
+    	{
+    		"Passive"			"1"
+    		"IsHidden"			"0"
+    		"IsDebuff"			"0"
+    
+    		"Orb"
+		    {
+		        "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+		        "ProjectileName"    "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+		        "CastAttack"    "1"
+		    }
+
+		    "OnOrbFire"
+		    {
+		        "SpendMana"
+		        {
+		            "Mana"  "%AbilityManaCost"
+		        }
+		        "FireSound"
+		        {
+		            "EffectName"    "Hero_ObsidianDestroyer.ArcaneOrb"
+		            "Target"    "TARGET"    
+		        }
+		        
+		    }
+
+		    "OnOrbImpact"
+		    {
+		    	"RunScript"
+        		{
+        			"ScriptFile"	"abilities/arcano/arcano_splash.lua"
+        			"Function"		"setup_target"
+        		}
+		      	"ActOnTargets"
+		        {
+		        	
+		        	"Target"
+		        	{
+		        		"Center"  	"TARGET"
+		        		"Radius" 	"%radius"
+		        		"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		        		"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		        	}
+		        
+		        	"Action"    
+		        	{
+		        		"RunScript"
+		        		{
+		        			"ScriptFile"	"abilities/arcano/arcano_splash.lua"
+		        			"Function"		"projectile_launch"
+		        		}
+		        		
+		        	}
+		        }  
+
+		    }
+
+    	}
+    }
+
+	
+
+		
+
+}	

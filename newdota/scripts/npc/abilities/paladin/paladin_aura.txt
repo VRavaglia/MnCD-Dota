@@ -6,7 +6,7 @@
 	"AbilityType"            		"DOTA_ABILITY_TYPE_BASIC"
 	"AbilityCooldown"				"%cooldown"
 	"AbilityCastPoint"       		"0.3"
-	"AbilityManaCost"         		"10 10 10 10"
+	"AbilityManaCost"         		"60 70 80 90"
 	"AbilityDamage"					"15 25 35 45"
 	"AbilityCastRange" 				"%radius"
 
@@ -30,7 +30,7 @@
 		"03"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"cooldown"			"1.0 1.0 1.0 1.0"
+			"cooldown"			"14.0 13.0 12.0 11.0"
 		}
 		"04"
 		{
@@ -43,6 +43,7 @@
 	{
 		"particle"  "particles/units/heroes/hero_omniknight/omniknight_degen_aura.vpcf"
 		"particle"  "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+		"particle"  "particles/econ/items/dazzle/dazzle_dark_light_weapon/dazzle_dark_shallow_grave_ground.vpcf"
 
 	}
 
@@ -84,7 +85,7 @@
 			"IsHidden"			"0"
 			"IsPurgable"		"0"
 	
-			"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+			"EffectName"		"particles/econ/items/dazzle/dazzle_dark_light_weapon/dazzle_dark_shallow_grave_ground.vpcf"
 			"EffectAttachType"	"follow_origin"
 
 			"ThinkInterval"  "0.5"

@@ -1,7 +1,7 @@
 function reflect(keys)
 	local damage = keys.attack_damage
 	local caster = keys.caster
-	
+
 	local ability = keys.ability
 	local level = (ability:GetLevel()-1)
 	local reflect_percent = ability:GetLevelSpecialValueFor("damage_reflected", level)
@@ -21,8 +21,10 @@ function reflect(keys)
 	}
 	for key,value in pairs(damageTable)	do
 		print(key,value)
-	end	
+	end
 
 	ApplyDamage(damageTable)
-	
+
+
 end
+

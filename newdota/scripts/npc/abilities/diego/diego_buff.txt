@@ -10,12 +10,13 @@
 
 
 
-	"AbilityManaCost"     		    "0 0 0 0"
-	"AbilityCooldown"        		"1.0 1.0 1.0 1.0"
+	"AbilityManaCost"     		    "50 60 70 90"
+	"AbilityCooldown"        		"13.0 12.0 11.0 10.0"
 
 	"precache"
 	{
 		"particle"  "particles/econ/courier/courier_golden_roshan/golden_roshan_ambient.vpcf"
+		"particle"  "particles/units/heroes/hero_bloodseeker/bloodseeker_silenced.vpcf"
 	}
 
 	"AbilitySpecial"
@@ -109,6 +110,9 @@
 			"TextureName"      "nevermore_dark_lord"
 			"IsDebuff"		   "1"
 			"IsPurgable"	   "1"
+
+			"EffectName"       "particles/units/heroes/hero_bloodseeker/bloodseeker_silenced.vpcf"
+   			"EffectAttachType" "follow_overhead"
 			"States"
 			{
 				"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"

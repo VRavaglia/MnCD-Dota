@@ -12,7 +12,7 @@
 
 	"AbilityCooldown"				"%cooldown"
 	"AbilityCastPoint"       		"0.3"
-	"AbilityManaCost"         		"10 10 10"
+	"AbilityManaCost"         		"125 175 250"
 	"AbilityDamage"					"100 200 300"
 	"AbilityCastRange" 				"1000 1000 1000"
 	"AOERadius"						"%radius"
@@ -32,7 +32,7 @@
 		"03"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"cooldown"			"1.0 1.0 1.0 1.0"
+			"cooldown"			"90 70 50"
 		}
 		"04"
 		{

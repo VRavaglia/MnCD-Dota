@@ -6,15 +6,15 @@
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AoERadius"						"%radius"
-	"AbilityCastPoint"				"0.0"
-	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	"AbilityCastPoint"				"0.4"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
-	"AbilityCooldown"				"0.0 0.0 0.0 0.0"
+	"AbilityCooldown"				"100.0 80.0 60.0"
 
-	"AbilityManaCost"				"0"
+	"AbilityManaCost"				"200.0 150.0 100.0"
 
-	
+
 	"AbilitySpecial"
 	{
 		"01"
@@ -83,8 +83,8 @@
 				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 			}
-		
-			"Action"    
+
+			"Action"
 			{
 				"ApplyModifier"
 				{
@@ -104,16 +104,16 @@
 			"IsHidden"			"0"
 			"IsDebuff"			"0"
 			"IsPurgable"		"0"
-	
+
 			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
 			"EffectAttachType"	"follow_origin"
 
 			"Properties"
             {
                 "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
-            }   
-	
-			
+            }
+
+
 		}
 		"henrique_aura_debuff"
 		{
@@ -162,10 +162,9 @@
 
 			"Properties"
 			{
-			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
 			}
 
 		}
 	}
-}		
-		
+}

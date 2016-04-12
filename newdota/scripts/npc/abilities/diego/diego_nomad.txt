@@ -47,8 +47,9 @@
 				}
 				"RunScript"
 				{
-					"ScriptFile"	"abilities/diego/diego_nomad.lua"
-					"Function"		"Damage"
+					"ScriptFile"	"abilities/diego/diego_midas"
+					"Function"		"midas"
+					
 				}
 				"ApplyModifier"
 				{
@@ -59,8 +60,8 @@
 				"RunScript"
    				{
    					"Target"		"TARGET"
-					"ScriptFile"	"abilities/diego/diego_midas"
-					"Function"		"midas"
+					"ScriptFile"	"abilities/diego/diego_nomad.lua"
+					"Function"		"Damage"
    				}
 			}
 		}

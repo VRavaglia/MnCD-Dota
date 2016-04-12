@@ -2,9 +2,9 @@
   {
     "override_hero"     "npc_dota_hero_lion"
 
-    "StatusHealth"                "1000"
+    "StatusHealth"                "10000"
     "StatusHealthRegen"           "0"      
-    "StatusMana"                  "1000"      
+    "StatusMana"                  "10000"      
     "StatusManaRegen"             "0"
 
     "ArmorPhysical"                "0"

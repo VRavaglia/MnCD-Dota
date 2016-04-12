@@ -1,26 +1,26 @@
 "hermann"
   {
     "override_hero"     "npc_dota_hero_oracle"
-    "AbilityLayout"     "4"
-    "Ability1"        "" 
-    "Ability2"        "" 
-    "Ability3"        "" 
+    "AbilityLayout"     "5"
+    "Ability1"        "hermann_vision"
+    "Ability2"        "hermann_disable"
+    "Ability3"        "hermann_buff"
     "Ability4"        ""
     "Ability6"        "hermann_totem"
 
 
 
-    //"ArmorPhysical"       "0"                 
-    //"MagicalResistance"       "0"                
+    //"ArmorPhysical"       "0"
+    //"MagicalResistance"       "0"
 
     //"AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
     //"AttackRange"           "128"
-    //"AttackDamageMin"     "1"               
+    //"AttackDamageMin"     "1"
     //"AttackDamageMax"     "1"
     //"AttackDamageType"          "DAMAGE_TYPE_ArmorPhysical"
     //"AttackRate"                "0.25"          // Speed of attack.
     //"AttackAnimationPoint"      "0.0"       // Normalized time in animation cycle to attack.
-    //"AttackAcquisitionRange"    "600"   
+    //"AttackAcquisitionRange"    "600"
 
     //"AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
     //"AttributeBaseStrength"   "0"                   // Base strength

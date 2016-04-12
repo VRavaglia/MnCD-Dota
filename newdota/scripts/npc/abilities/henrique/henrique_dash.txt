@@ -2,7 +2,7 @@
 {
 	"BaseClass"             		"ability_datadriven"
 	"AbilityTextureName"			"henrique_dash"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
@@ -15,7 +15,7 @@
 
 	"AbilityCooldown"				"0.0 0.0 0.0 0.0"
 
-	"AbilityManaCost"				"0"
+	"AbilityManaCost"				"20 30 40 50"
 
 	"precache"
 	{
@@ -42,13 +42,13 @@
 		}
 		"04"
 		{
-			"var_type"					"FIELD_INTEGER"
-			"max_charges"				"3 3 3 3"
+			"var_type"			"FIELD_INTEGER"
+			"max_charges"		"3 3 3 3"
 		}
 		"05"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"cooldown"			"2.0 2.0 2.0 2.0"
+			"cooldown"			"20.0 17.0 14.0 11.0"
 		}
 		"06"
 		{
@@ -59,20 +59,7 @@
 
 	"OnSpellStart"
 	{
-		//"LinearProjectile"
-		//{
-		//	"Target"				"POINT"
-		//	"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
-		//	"MoveSpeed"				"%speed"
-		//	"StartRadius"			"%radius"
-		//	"EndRadius"				"%radius"
-		//	"FixedDistance"			"%range"
-		//	"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		//	"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		//	"TargetFlags"			"+DOTA_UNIT_TARGET_FLAG_NONE"
-		//	"HasFrontalCone"		"0"
-		//	"ProvidesVision"		"0"
-		//}
+
 		"RunScript"
 		{
 			"ScriptFile"	"abilities/henrique/henrique_dash.lua"
@@ -83,18 +70,6 @@
 			"ScriptFile"	"abilities/henrique/henrique_dash.lua"
 			"Function"		"dashStart"
 		}
-		//"RunScript"
-		//{
-		//	"ScriptFile"	"abilities/henrique/henrique_dash.lua"
-		//	"Function"		"moveHorizontal"
-		//}
-		//"ApplyMotionController"
-		//{
-		//	"Caster" 		"CASTER"
-		//    "ScriptFile"    "abilities/henrique/henrique_dash.lua"
-		//    "HorizontalControlFunction" "moveHorizontal"
-		//    "VerticalControlFunction"   "moveHorizontal"     
-		//}
 
 		"ApplyModifier"
 		{
@@ -102,32 +77,16 @@
 			"Target" 		"CASTER"
 			"Duration"		"0.2"
 		}
-		//"ApplyModifier"
-		//{
-		//	"ModifierName"	"henrique_dash_damage"
-		//	"Target" 		"CASTER"
-		//	"Duration"		"%damage_duration"
-		//}
+
 		
 	}
-
-	//"OnProjectileHitUnit"
-	//{
-	//	"DeleteOnHit"				"0"
-	//	"Damage"
-	//	{
-	//		"Target"		"TARGET"
-	//		"Type"			"DAMAGE_TYPE_MAGICAL"
-	//		"Damage"		"500"
-	//	}	
-	//}
 
 
 	"Modifiers"
 	{
 		"henrique_dash_duration"
 		{
-			"TextureName"      "ember_spirit_activate_fire_remnant"
+
 			"Passive"			"0"
 			"IsHidden"			"1"
 			"IsDebuff"			"0"
@@ -186,7 +145,7 @@
 		}
 		"henrique_dash_cooldown"
 		{
-			"TextureName"      "ember_spirit_activate_fire_remnant"
+
 			"Passive"			"0"
 			"IsHidden"			"1"
 			"IsDebuff"			"0"
@@ -205,26 +164,17 @@
 		}
 		"henrique_dash_charges"
 		{
-			"TextureName"      "ember_spirit_activate_fire_remnant"
+
 			"Passive"			"1"
 			"IsHidden"			"0"
 			"IsDebuff"			"0"
 			"IsPurgable"		"0"
 
-			//"OnCreated"
-			//{
-			//	"RunScript"
-			//	{
-			//		"ScriptFile"	"abilities/henrique/henrique_dash.lua"
-			//		"Function"		"create"
-			//	}
-
-			//}
 
 		}
 		"henrique_dash_damage"
 		{
-			"TextureName"      "ember_spirit_activate_fire_remnant"
+
 			"Passive"			"0"
 			"IsHidden"			"0"
 			"IsDebuff"			"0"

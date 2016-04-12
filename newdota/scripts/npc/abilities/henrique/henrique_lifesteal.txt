@@ -13,9 +13,9 @@
 	"AbilityCastPoint"				"0.0"
 	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
-	"AbilityCooldown"				"1.0 1.0 1.0 1.0"
+	"AbilityCooldown"				"12.0 10.0 8.0 6.0"
 
-	"AbilityManaCost"				"10"
+	"AbilityManaCost"				"45 60 75 90"
 
 	"AbilityCastPoint"       		"0.0"
     "AbilityCastAnimation"   		"ACT_DOTA_ATTACK"
@@ -32,7 +32,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"duration"			"5 6 7 8"
+			"duration"			"3 4 5 6"
 		}
 		"02"
 		{
@@ -47,7 +47,7 @@
 		"04"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"attackspeed"		"100.0 100.0 100.0 100.0"
+			"attackspeed"		"60.0 80.0 100.0 120.0"
 		}
 		
 	}

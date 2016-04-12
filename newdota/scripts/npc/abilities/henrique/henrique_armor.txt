@@ -2,17 +2,17 @@
 {
 	"BaseClass"             		"ability_datadriven"
 	"AbilityTextureName"			"henrique_armor"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
-	
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-	"AbilityCooldown"				"5.0 5.0 5.0 5.0"
+
+	"AbilityCooldown"				"%cooldown"
 
 	"AbilitySpecial"
 	{
 		"01"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"cooldown"  		"5.0 5.0 5.0 5.0"
+			"cooldown"  		"16.0 12.0 8.0 4.0"
 		}
 		"02"
 		{
@@ -31,7 +31,7 @@
 		}
 	}
 
-	
+
 	"Modifiers"
 	{
 		"henrique_armor_buff"
@@ -41,11 +41,11 @@
 			"IsHidden"			"0"
 			"IsDebuff"			"0"
 			"IsPurgable"		"1"
-	
+
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
-				
+
 			}
 		}
 		"henrique_armor_debuff"
@@ -55,7 +55,7 @@
 			"IsHidden"			"0"
 			"IsDebuff"			"1"
 			"IsPurgable"		"1"
-	
+
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
@@ -70,7 +70,7 @@
 			"IsPurgable"		"0"
 
 			"OnAttackLanded"
-			{		
+			{
 				"RunScript"
 				{
 					"ScriptFile"	"abilities/henrique/henrique_armor.lua"
@@ -79,7 +79,7 @@
 			}
 		}
 	}
-}		
+}
 
 
 
