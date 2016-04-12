@@ -1,0 +1,129 @@
+"berserker_burnout"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"axe_counter_helix"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	//"AbilityDamage"					"50 100 150 200"
+	"MaxLevel"						"4"
+
+	"AbilityCastPoint"				"0.1"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+	"AbilityCooldown"				"13.0 13.0 13.0 13.0"
+
+	"AbilityManaCost"				"120 120 120 120"
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage_base"				"60 120 180 240"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage_bonus"				"20 40 60 80"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"knockback"					"200 250 300 350"
+		}
+		"04"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"slow"						"-15 -20 -25 -30"
+		}
+		"05"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"duration"					"2.0 2.0 2.0 2.0"
+		}
+		"06"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"radius"					"200 250 300 350"
+		}
+		
+
+	}
+
+
+	"precache"
+	{
+		"particle"  "particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
+		"particle"  "particles/econ/items/axe/axe_weapon_wyvernguard_edge/axe_attack_blur_counterhelix_wyvernguard_edge.vpcf"
+	}
+
+	"OnSpellStart"
+	{
+		"FireEffect"
+		{
+			"EffectName"        "particles/econ/items/axe/axe_weapon_bloodchaser/axe_attack_blur_counterhelix_bloodchaser.vpcf"
+			"EffectAttachType"  "follow_origin"
+			"Target"            "CASTER"
+		}
+		"FireEffect"
+		{
+			"EffectName"        "particles/econ/items/axe/axe_weapon_wyvernguard_edge/axe_attack_blur_counterhelix_wyvernguard_edge.vpcf"
+			"EffectAttachType"  "follow_origin"
+			"Target"            "CASTER"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center"  	"CASTER"
+				"Radius" 	"%radius"
+				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"Action"    
+			{
+			    "RunScript"
+				{
+					"ScriptFile"	"abilities/berserker/berserker_burnout.lua"
+					"Function"		"start"
+				}
+				"Knockback"
+				{
+					"Target"            "TARGET"
+					"Center" 	        "CASTER"
+					"Distance"	        "%knockback"
+					"Duration"	        "0.2"
+					"Height"	        "0"
+					"IsFixedDistance"	"1"
+					"ShouldStun"        "1"	
+				}
+			}
+		}
+	}
+
+	"Modifiers"
+	{
+		"berserker_burnout_slow"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+			"IsPurgable"		"1"
+	
+			//"EffectName"		"particle_name"
+			//"EffectAttachType"	"follow_origin"
+	
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+			}
+		}
+	}
+}	

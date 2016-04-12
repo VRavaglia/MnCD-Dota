@@ -1,0 +1,130 @@
+"gustavo_gelinho"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"winter_wyvern_splinter_blast"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+
+	"AbilityCooldown"				"10.0 9.0 8.0 7.0"
+	"AbilityCastPoint"       		"0.3"
+	"AbilityManaCost"         		"70 90 110 130"
+	"AbilityDamage"					"%damage"
+	"AbilityCastRange" 				"%range"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow"  			"-20.0 -25.0 -30.0 -35.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"range"				"1000 1000 1000 1000"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"cooldown"			"10.0 9.0 8.0 7.0"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"damage"			"50 55 60 65"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"bounces"			"5 10 15 20"
+		}
+		"06"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"search_range"		"600 600 600 600"
+		}
+		"07"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"speed"		"1000 1000 1000 1000"
+		}
+
+	}
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		"soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"TrackingProjectile"
+		{
+		    "Target"           "TARGET"
+		    "EffectName"       "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		    "Dodgeable"        "1"
+		    "ProvidesVision"   "1"
+		    "VisionRadius"     "200"
+		    "MoveSpeed"        "%speed"
+		    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/gustavo/gustavo_gelinho"
+			"Function"		"index"
+		}
+
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+		"ApplyModifier"
+		{
+		    "ModifierName"	"gustavo_gelinho_slow"
+		    "Target" 		"TARGET"
+    		"Duration"		"3.0"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/gustavo/gustavo_gelinho"
+			"Function"		"hit"
+			"Target"
+    				{
+    					"Center"  	"TARGET"
+    					"Radius" 	"%search_range"
+    					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    				}
+		}
+
+	}
+
+	"Modifiers"
+	{
+		"gustavo_gelinho_slow"
+		{
+			"IsDebuff"         "1"
+    		"IsHidden"         "0"
+    		"IsPurgable"       "1"
+
+    		"Properties"
+    		{
+    			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
+    		    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
+    		}
+
+		}
+	}
+
+
+
+}

@@ -1,0 +1,161 @@
+"hermann_disable"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"oracle_fortunes_end"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"  		"DAMAGE_TYPE_MAGICAL"
+
+	"AbilityCooldown"				"%cooldown"
+	"AbilityCastPoint"       		"0.3"
+	"AbilityManaCost"         		"0"
+	"AbilityCastRange" 				"1000"
+	"AOERadius"						"%radius_slow"
+
+	"AbilitySpecial"
+	{	
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow_base"  		"-20 -25 -30 -35"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration_slow"		"3.0 3.0 3.0 3.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration_stun"		"1.25 1.5 1.75 2.0"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius_slow"		"300 350 400 450"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius_slow_bonus"	"150 200 250 300"
+		}
+		"06"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius_stun"		"50 100 150 200"
+		}
+		"07"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"min_damage"		"40 80 120 160"
+		}
+		"08"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"max_damage"		"180 240 300 360"
+		}
+		"09"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow_bonus"  		"-35 -40 -45 -50"
+		}
+
+	}
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_oracle/oracle_fortune_prj.vpcf"
+		"particle"	"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+		"particle"  "particles/generic_gameplay/generic_stunned.vpcf"
+	}
+	"OnUpgrade"
+	{
+		 "RunScript"
+		{
+			"ScriptFile"	"abilities/hermann/hermann_totem.lua"
+			"Function"		"create"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"TrackingProjectile"
+		{
+		    "Target"           "TARGET"
+		    "EffectName"       "particles/units/heroes/hero_oracle/oracle_fortune_prj.vpcf"
+		    "Dodgeable"        "0"
+		    "ProvidesVision"   "1"
+		    "VisionRadius"     "300"
+		    "MoveSpeed"        "1500"
+		    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"DeleteOnHit"	"1"
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/hermann/hermann_disable.lua"
+			"Function"		"start"
+		}
+		
+		
+	}
+
+	"Modifiers"
+	{
+		"hermann_disable_slow_base"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+	
+			"EffectName"		"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+			"EffectAttachType"	"follow_origin"
+	
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_base" 
+			}
+		}
+		"hermann_disable_slow_bonus"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+	
+			"EffectName"		"particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+			"EffectAttachType"	"follow_origin"
+	
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_bonus" 
+			}
+		}
+		"hermann_disable_stun"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+	
+			"EffectName"		"particles/generic_gameplay/generic_stunned.vpcf"
+			"EffectAttachType"	"follow_overhead"
+
+
+	
+			"States"
+			{
+				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+
+
+
+}

@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "scripts\\npc"
+		},
+		{
+			"path": "scripts\\vscripts\\abilities"
+		}
+	]
+}

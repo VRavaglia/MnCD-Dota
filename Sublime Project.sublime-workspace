@@ -1,0 +1,611 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"OnPr",
+				"OnProjectileFinish	Fix Distance"
+			],
+			[
+				"gus",
+				"gustavo_rocket.txt"
+			],
+			[
+				"gusta",
+				"gustavo_rocket_slow"
+			],
+			[
+				"OnP",
+				"OnProjectileFinish	Fix Distance"
+			],
+			[
+				"gustavo",
+				"gustavo_gelinho_slow"
+			],
+			[
+				"GetLevel",
+				"GetLevelSpecialValueFor	No Description Set"
+			],
+			[
+				"np",
+				"npc_hermann_totem.txt"
+			],
+			[
+				"ability",
+				"abilityLevel"
+			],
+			[
+				"GetLeve",
+				"GetLevelSpecialValueFor	No Description Set"
+			],
+			[
+				"henr",
+				"henrique_armor_passive"
+			],
+			[
+				"Eff",
+				"AttachEffect"
+			],
+			[
+				"damage",
+				"damage_done"
+			],
+			[
+				"damage_",
+				"damage_to_be"
+			],
+			[
+				"target",
+				"targetKeyTARGET"
+			],
+			[
+				"tim",
+				"time_damage"
+			],
+			[
+				"herm",
+				"hermann_gamble_store"
+			],
+			[
+				"Act",
+				"ActOnTargets	Shared Target scope"
+			],
+			[
+				"hern",
+				"hermann_gamble"
+			],
+			[
+				"da",
+				"damageTable"
+			],
+			[
+				"refl",
+				"reflect_percent"
+			],
+			[
+				"henri",
+				"henrique_aura_slow"
+			],
+			[
+				"slow",
+				"slow_duration"
+			],
+			[
+				"OnDa",
+				"OnDealDamage	Modifier owner dealt"
+			],
+			[
+				"hen",
+				"henrique_aura_buff"
+			],
+			[
+				"OnMana",
+				"OnSpentMana	modifier event"
+			],
+			[
+				"duration",
+				"duration_d"
+			],
+			[
+				"he",
+				"henrique_lifesteal_buff"
+			],
+			[
+				"App",
+				"ApplyModifier	to a Target"
+			],
+			[
+				"C",
+				"CASTER"
+			],
+			[
+				"mo",
+				"modifierName"
+			],
+			[
+				"das",
+				"dash_traveled"
+			],
+			[
+				"abili",
+				"ability_level"
+			],
+			[
+				"R",
+				"RunScript	Run a lua script"
+			],
+			[
+				"henrique",
+				"henrique_dash"
+			],
+			[
+				"Onpro",
+				"OnProjectileFinish	Fix Distance"
+			],
+			[
+				"modi",
+				"modifierName"
+			],
+			[
+				"key",
+				"keys"
+			],
+			[
+				"paladin_pu",
+				"paladin_purification_slow"
+			],
+			[
+				"pala",
+				"paladin_purification_main"
+			],
+			[
+				"Fire",
+				"FireEffect	particle on a Target"
+			],
+			[
+				"fun",
+				"function	function"
+			],
+			[
+				"On",
+				"OnTakeDamage	modf owner took dmg"
+			],
+			[
+				"Ons",
+				"OnSpellStart	Finished Cast Point"
+			],
+			[
+				"FIE",
+				"FIELD_INTEGER"
+			],
+			[
+				"Ondama",
+				"OnTakeDamage	modf owner took dmg"
+			],
+			[
+				"die",
+				"diego_midas_debuff"
+			],
+			[
+				"dieo",
+				"diego_nomad_timer"
+			],
+			[
+				"OnAtta",
+				"OnAttackLanded	Hit"
+			],
+			[
+				"move",
+				"movespeed"
+			],
+			[
+				"diego",
+				"diego_buff"
+			],
+			[
+				"dura",
+				"duration_target"
+			],
+			[
+				"Onprojectile",
+				"OnProjectileHitUnit	Target detect"
+			],
+			[
+				"OnSpe",
+				"OnSpellStart	Finished Cast Point"
+			],
+			[
+				"Abili",
+				"AbilitySpecial	Variables"
+			],
+			[
+				"Ability",
+				"AbilityCastRange	Point Animation"
+			],
+			[
+				"Abilit",
+				"AbilityBehavior	Team Type"
+			],
+			[
+				"erro",
+				"ErrorLevel"
+			],
+			[
+				"file",
+				"filenames"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/AutoHotkey/AutoHotkey.sublime-build",
+					""
+				],
+				[
+					"Packages/AutoHotkey/AutoHotkey.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/AutoHotkey/AutoHotkey.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "Package Control: re",
+		"selected_items":
+		[
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"colo",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package control install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/flux",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/units",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/diego",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/flux",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/gustavo",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/hermann"
+	],
+	"file_history":
+	[
+		"/C/Users/Victor/Dropbox/Programas/Autohotkey/Diablo 3 Farm/Diablo 3 Farm 2.0.ahk",
+		"/C/Users/Victor/AppData/Roaming/LivestreamerUI/Favorites.txt",
+		"/C/Users/Victor/Desktop/Novo Documento de Texto.txt",
+		"/C/Users/Victor/Documents/Livestreamer/favorites.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/flux/flux_electro_ball.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego/diego_hook.txt",
+		"/C/Users/Victor/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/flux.txt",
+		"/V/Torrents/Sonata.Arctica-Discography.1999-2014.Lossless/Albums/Novo Documento de Texto.py",
+		"/C/Users/Victor/AppData/Roaming/beets/config.yaml",
+		"/V/Torrents/Sonata.Arctica-Discography.1999-2014.Lossless/Albums/2004 - Reckoning Night (Avalon MICP-10466)/Sonata Arctica - Reckoning Night [Japan].cue",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/flux/flux_electro_ball.txt",
+		"/C/Users/Victor/AppData/Roaming/Factorio/mods/FactorioBasics-Core_0.0.9/info.json",
+		"/C/Program Files/Factorio/data/changelog.txt",
+		"/V/Torrents/Jogos/Factorio.v0.12.3/README.txt",
+		"/C/Users/Victor/Desktop/Novo(a) AutoHotkey Script.ahk",
+		"/V/Torrents/Jogos/SUPERHOT-FLT/fairlight.nfo",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/Sublime Project.sublime-project",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/gustavo/gustavo_rocket.txt",
+		"/C/Users/Victor/Desktop/Cled/circles2.lua",
+		"/C/Users/Victor/Desktop/Cled/ledscript.lua",
+		"/C/Users/Victor/AppData/Roaming/livestreamer/cli.json",
+		"/C/Users/Victor/Desktop/Patch Instructions.txt",
+		"/C/Users/Victor/Desktop/Cled/log.txt",
+		"/C/Users/Victor/Desktop/Cled/circles.lua",
+		"/C/Users/Victor/Desktop/Cled/keydown.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego/diego_buff.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/diego/diego_midas.lua",
+		"/C/Users/Victor/Desktop/autoq.ahk",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henrique_armor.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego/diego_nomad.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/gustavo/gustavo_gelinho.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/gustavo/gustavo_gelinho.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/gustavo.txt",
+		"/C/Users/Victor/Desktop/0 Walkthrough.txt",
+		"/C/Users/Victor/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings",
+		"/C/Users/Victor/AppData/Roaming/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
+		"/C/Users/Victor/AppData/Local/Temp/7zO8677.tmp/0 Walkthrough.txt",
+		"/V/Mod Organizer/overwrite/Meshes/~AnimationDataSingleFile.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/gustavo/gustavo_crit.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/paladin/paladin_purification.txt",
+		"/C/Users/Victor/AppData/Local/Temp/7zOE4.tmp/pan.s.labyrinth.(4445579).nfo",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/hermann.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/hermann/hermann_damage.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/units/npc_hermann_totem.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/hermann/hermann_totem.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/hermann/hermann_totem.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/hermann/hermann_vision.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/hermann/hermann_totem_unit.txt",
+		"/V/Animus/Wolf's Rain - Anime Legends Collection/Information.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/diego.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henrique_aura.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/henrique/henrique_aura.lua",
+		"/C/Users/Victor/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/V/SteamLibrary/steamapps/common/dota",
+		"/C/WINDOWS/System32/2",
+		"/C/WINDOWS/System32/beta/game/dota_addons/newdota/scripts/npc/heroes/hermann.txt",
+		"/C/WINDOWS/System32/beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henrique_armor.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henrique_dash.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henrique_lifesteal.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/example_ability.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/hermann/hermann_gamble.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/henrique/henrique_dash.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/hermann/hermann_gamble.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/henrique/henerique_aura.txt",
+		"/C/Users/Victor/Desktop/addon_game_mode.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/units/npc_dummy_unit.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/dummy_unit.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/henrique/henrique_armor.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/henrique.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/henrique - Copia.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/paladin/paladin_guardian_angel.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/paladin/paladin_shield.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/henrique/henrique_aura.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego/diego_midas.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/paladin/paladin_guardian_angel.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/paladin/paladin_aura.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/henrique/henrique_lifesteal.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/diego/diego_hook.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/addon_game_mode.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/paladin - Copia.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/diego/diego_nomad.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/paladin/paladin_shield.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/dash.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/gamemode.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/events.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/addoninfo.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/resource/flash3/custom_ui.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/addon_hud_textures.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/panorama/localization/addon_english.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/paladin.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/content/dota_addons/newdota/tooltips_english.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/resource/addon_english.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/barebones/resource/addon_english.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/resource/overviews/template_map.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/resource/overviews/dota_pvp.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/internal/gamemode.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/settings.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/custom_net_tables.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/paladin/paladin_guardian_angel.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/npc_abilities_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/diego - Copia.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego_midas.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego_hook.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego_nomad.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/npc_dota_hero_ancient_apparition_barebones - Copia.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/diego_buff.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/minidota/scripts/npc/heroes/npc_dota_hero_ancient_apparition_minidota.txt",
+		"/C/Users/Victor/Desktop/diego_nomad.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/npc_heroes_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/lion_dummy.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/heroes/npc_dota_hero_ancient_apparition_barebones.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/containers_lua_targeting_tree.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/diego_hook.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/SpellLibrary/game/scripts/npc/abilities/queenofpain_blink_datadriven.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/SpellLibrary/game/scripts/vscripts/heroes/hero_queenofpain/blink.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/vscripts/abilities/diego/Novo Documento de Texto.lua",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota2/scripts/npc/npc_abilities_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota2/scripts/npc/npc_heroes_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota2/scripts/npc/diego_hook.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota2/addoninfo.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/minidota/scripts/npc/abilities/npc_abilities_diego_hook.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/finaldota/scripts/npc/npc_heroes_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/finaldota/scripts/npc/npc_abilities_custom.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota2/scripts/npc/npc_abilities_diego_hook.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/minidota/scripts/npc/abilities/example_ability.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/content/dota_addons/minidota/tooltips_english.txt",
+		"/V/SteamLibrary/steamapps/common/dota 2 beta/game/dota_addons/newdota/scripts/npc/abilities/ability_diego_hook.txt"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"event",
+			"add",
+			"addon",
+			"addon_name",
+			"npc",
+			"level_midas",
+			"Getlevel",
+			"SDL2/"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 63.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.576642335766,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Sublime Project.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 202.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

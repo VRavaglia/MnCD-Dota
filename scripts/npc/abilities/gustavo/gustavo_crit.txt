@@ -1,0 +1,35 @@
+"gustavo_crit"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"winter_wyvern_winters_curse"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityType"            		"DOTA_ABILITY_TYPE_BASIC"
+	
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"chance"  			"10 15 20 25"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"damage_percentage"	"200 200 200 200"
+		}
+	}
+
+
+	"Modifiers"
+	{
+		"gustavo_crit_buff"
+		{
+			"Passive"			"1"
+			"IsPurgable"		"0"
+			"IsHidden"			"1"
+		}
+		
+	}
+
+}	
