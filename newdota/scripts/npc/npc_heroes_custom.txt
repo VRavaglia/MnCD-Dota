@@ -7,7 +7,7 @@
 	    "Ability1"        "arcano_shot"
 	    "Ability2"        ""
 	    "Ability3"        "arcano_splash"
-	    "Ability4"        ""
+	    "Ability4"        "arcano_beam"
 	    "Ability5"        ""
 	    "Ability6"        ""
 	    //"Ability7"        ""
