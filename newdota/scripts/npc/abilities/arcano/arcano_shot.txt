@@ -87,11 +87,6 @@
     		"Type"			"DAMAGE_TYPE_MAGICAL"
     		"Damage"		"%damage"
     	}
-    	"RunScript"
-    	{
-    		"ScriptFile"	"abilities/arcano/arcano_atks"
-    		"Function"		"hit"
-    	}
 
     }
 
