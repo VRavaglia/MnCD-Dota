@@ -3122,7 +3122,7 @@
 	
 		"precache"
 		{
-			"particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+			"particle"  "particles/items3_fx/octarine_core_lifesteal.vpcf"
 	
 		}
 	
@@ -3154,7 +3154,13 @@
 				"Target" 		"CASTER"
 				"Duration"		"%cooldown"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hermann/hermann_buff"
+				"Function"		"cast"
+			}
 		}
+	
 	
 		"Modifiers"
 		{
@@ -3178,7 +3184,7 @@
 			"hermann_buff_cooldown"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
 		
@@ -3211,11 +3217,11 @@
 			"hermann_buff_effect"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"IsPurgable"		"1"
+				"IsPurgable"		"0"
 	
-				"EffectName"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+				"EffectName"		"particles/items3_fx/octarine_core_lifesteal.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}	
 			"OnCreated"
@@ -3529,6 +3535,7 @@
 	        "Function"    "totem_die"
 	      }
 	    }
+	    
 	
 	
 	    "Modifiers"
@@ -3537,17 +3544,203 @@
 	      {
 	          "Passive"                        "1"
 	          "IsHidden"                        "1"
+	          "OnAttacked"
+	          // "%attack_damage" is set to the damage value after mitigation
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "abilities/hermann/hermann_totem"
+	              "Function"    "totem_attacked"
+	              "Attacker"    "ATTACKER"
+	            }
+	          }
+	
+	          "Properties"
+	          {
+	            "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-80" 
+	
+	
+	          }
 	          "States"
 	          {
 	              //"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+	              //"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
 	              //"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-	              "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+	              //"MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
 	              "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
 	          }
 	      }
 	    }
 	  }
+	"hermann_ult"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"oracle_false_promise"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastRange"				"1000 1000 1000"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"0"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600 800 1000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0 4.0 5.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"300 400 500"
+			}
+	
+		}
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_chen/chen_hand_of_god.vpcf"
+			"particle"  "particles/items_fx/black_king_bar_avatar.vpcf"
+			"particle"  "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hermann/hermann_ult"
+				"Function"		"start"
+			}
+	
+		}
+	
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/hermann/hermann_totem.lua"
+				"Function"		"create"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"hermann_ult_invulnerability"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+		
+				"EffectName"		"particles/items_fx/black_king_bar_avatar.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"  
+				}
+			}
+			"hermann_ult_thinker"
+			{
+				"OnCreated"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"abilities/hermann/hermann_ult"
+								"Function"		"setup"
+							}
+							"ApplyModifier"
+							{
+								"ModifierName"	"hermann_ult_knockback"
+								"Target" 		"TARGET"
+								"Duration"		"1.0"
+							}
+						}
+					}
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"FireEffect"
+							{
+								"EffectName"        "particles/units/heroes/hero_chen/chen_hand_of_god.vpcf"
+								"EffectAttachType"  "follow_origin"
+								"Target"            "TARGET"
+							}
+							"Heal"
+							{
+								"Target"        "TARGET"
+								"HealAmount"	"%heal"
+							}
+						}
+					}
+				}
+			}
+			"hermann_ult_knockback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+	
+				"EffectName"		 "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
+				"EffectAttachType"	 "follow_origin"	
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hermann/hermann_ult"
+						"Function"		"bugg"
+					}
+				}
+	
+				"ThinkInterval"  "0.02"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/hermann/hermann_ult"
+						"Function"		"knockback"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	
+	}
 	"hermann_vision"
 	{
 		"BaseClass"             		"ability_datadriven"

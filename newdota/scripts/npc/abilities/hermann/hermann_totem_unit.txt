@@ -17,6 +17,7 @@
         "Function"    "totem_die"
       }
     }
+    
 
 
     "Modifiers"
@@ -25,12 +26,29 @@
       {
           "Passive"                        "1"
           "IsHidden"                        "1"
+          "OnAttacked"
+          // "%attack_damage" is set to the damage value after mitigation
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "abilities/hermann/hermann_totem"
+              "Function"    "totem_attacked"
+              "Attacker"    "ATTACKER"
+            }
+          }
+
+          "Properties"
+          {
+            "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-80" 
+
+
+          }
           "States"
           {
               //"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+              //"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
               //"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-              "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+              //"MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
               "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
           }
       }

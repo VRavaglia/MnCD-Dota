@@ -127,6 +127,18 @@ function totem_die(keys)
 	
 end
 
+function totem_attacked(keys)
+	local caster = keys.caster
+	local attacker = keys.attacker
+	local health = caster:GetHealth()
+	print(health)
+	if attacker:IsRealHero() then		
+		caster:SetHealth(health - 2)
+	else
+		caster:SetHealth(health - 1)
+	end	
+
+end
 
 
 

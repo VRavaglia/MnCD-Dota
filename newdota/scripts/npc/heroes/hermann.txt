@@ -5,7 +5,7 @@
     "Ability1"        "hermann_vision"
     "Ability2"        "hermann_disable"
     "Ability3"        "hermann_buff"
-    "Ability4"        ""
+    "Ability4"        "hermann_ult"
     "Ability6"        "hermann_totem"
 
 
