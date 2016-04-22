@@ -11,7 +11,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_FLOAT"
-			"agi_per_int"  		"0.2 0.3 0.4 0.5"
+			"atks_per_int"  	"0.5 1.0 1.5 2.0"
 		}
 		"02"
 		{
@@ -48,6 +48,11 @@
     				"ScriptFile"	"abilities/arcano/arcano_passive"
     				"Function"		"think"
     			}
+    		}
+    		"Properties"
+    		{
+    			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+    		   
     		}
     	}
 

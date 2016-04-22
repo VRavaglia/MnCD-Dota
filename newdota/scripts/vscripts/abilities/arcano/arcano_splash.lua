@@ -1,34 +1,36 @@
 function projectile_hit(keys)
 	
 	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local level = ability:GetLevel() - 1
-	local int_as_damage = ((ability:GetLevelSpecialValueFor("int_as_damage",level)/100) * caster:GetIntellect())
-	local agi_as_damage = ability:GetLevelSpecialValueFor("agi_as_damage",level)
-	--local damage = agi_as_damage + int_as_damage
-	local duration = ability:GetLevelSpecialValueFor("duration", level)
+	if caster:IsAlive() then
+		local target = keys.target
+		local ability = keys.ability
+		local level = ability:GetLevel() - 1
+		--local int_as_damage = ((ability:GetLevelSpecialValueFor("int_as_damage",level)/100) * caster:GetIntellect())
+		--local agi_as_damage = ability:GetLevelSpecialValueFor("agi_as_damage",level)
+		--local damage = agi_as_damage + int_as_damage
+		local duration = ability:GetLevelSpecialValueFor("duration", level)
 
-	--[[local damageTable = {
-	        victim = target,
-	        attacker = caster,
-	        damage = damage,
-	        damage_type = DAMAGE_TYPE_PURE,
-	        ability = ability,
-	        }
+		--[[local damageTable = {
+		        victim = target,
+		        attacker = caster,
+		        damage = damage,
+		        damage_type = DAMAGE_TYPE_PURE,
+		        ability = ability,
+		        }
 
-	ApplyDamage(damageTable)]]
+		ApplyDamage(damageTable)]]
 
-	if not caster:HasModifier("arcano_splash_counter") then
+		if not caster:HasModifier("arcano_splash_counter") then
 
-		ability:ApplyDataDrivenModifier(caster, caster, "arcano_splash_counter", {})
-	end
+			ability:ApplyDataDrivenModifier(caster, caster, "arcano_splash_counter", {})
+		end
 
-	local counter = caster:FindModifierByName("arcano_splash_counter")
-	
-	counter:IncrementStackCount()
+		local counter = caster:FindModifierByName("arcano_splash_counter")
+		
+		counter:IncrementStackCount()
 
-	ability:ApplyDataDrivenModifier(caster, caster, "arcano_splash_buff", {duration = duration})		
+		ability:ApplyDataDrivenModifier(caster, caster, "arcano_splash_buff", {duration = duration})
+	end			
 
 
 end

@@ -50,5 +50,8 @@ end
 function decrement(keys)
 	local caster = keys.caster
 	local counter_buff = caster:FindModifierByName("arcano_beam_buff_counter")
-	counter_buff:DecrementStackCount()
+	if counter_buff then
+		counter_buff:DecrementStackCount()
+	end	
+	
 end

@@ -18,7 +18,7 @@
 		"01"
 		{
 			"var_type"			"FIELD_INTEGER"
-			"int_as_damage"  	"10 20 30 40"
+			"int_as_damage"  	"20 30 40 50"
 		}
 		"02"
 		{
