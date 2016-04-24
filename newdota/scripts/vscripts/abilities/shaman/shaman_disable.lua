@@ -52,8 +52,5 @@ function projectile(keys)
 
 				ApplyDamage(damageTable)
 	target:RemoveModifierByName("shaman_disable_stack_counter")
-	print("stacks " .. stacks)
-	print("damage " .. damage)
-	print("stun " .. duration)
 
 end

@@ -12,29 +12,29 @@
 	"AbilityManaCost"         		"0"
 	"AbilityCastRange" 				"600"
 
-	
 	"AbilitySpecial"
 	{
 		"01"
 		{
-			"var_type"				"VALUE_INTEGER"
-			"radius"				"200 200 200 200"
+			"var_type"					"FIELD_INTEGER"
+			"radius"					"200 200 200 200"
 		}
 		"02"
 		{
-			"var_type"				"VALUE_INTEGER"
-			"heal_per_ally"			"10 20 30 40"
+			"var_type"					"FIELD_INTEGER"
+			"heal_per_ally"				"10 20 30 40"
 		}
 		"03"
 		{
-			"var_type"				"VALUE_INTEGER"
-			"heal_base"				"50 100 150 200"
+			"var_type"					"FIELD_INTEGER"
+			"heal_base"					"50 100 150 200"
 		}
 		"04"
 		{
-			"var_type"				"VALUE_INTEGER"
-			"add_heal_percent"		"20 30 40 50"
+			"var_type"					"FIELD_INTEGER"
+			"add_heal_percent"			"20 30 40 50"
 		}
+
 	}
 	"precache"
 	{

@@ -4,8 +4,8 @@
     "AbilityLayout"     "4"
     "Ability1"        "shaman_heal" 
     "Ability2"        "shaman_disable" 
-    "Ability3"        "" 
-    "Ability4"        ""
+    "Ability3"        "shaman_buff" 
+    "Ability4"        "shaman_ult"
 
 
     //"ArmorPhysical"       "0"                 

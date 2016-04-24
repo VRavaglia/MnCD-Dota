@@ -3203,7 +3203,7 @@
 	
 		"AbilitySpecial"
 		{	
-			"01"
+			"01" 
 			{
 				"var_type"			"FIELD_FLOAT"
 				"slow_base"  		"-20 -25 -30 -35"
@@ -3367,7 +3367,7 @@
 		}
 	
 		"AbilitySpecial"
-		{
+		{ 
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
@@ -3467,7 +3467,7 @@
 	
 	  "hermann_totem_unit"
 	  {
-	    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE" 
 	    "BaseClass"           "ability_datadriven"
 	    "AbilityTextureName"            "rubick_empty1"
 	    "MaxLevel"                      "1"
@@ -3496,13 +3496,12 @@
 	            {
 	              "ScriptFile"  "abilities/hermann/hermann_totem"
 	              "Function"    "totem_attacked"
-	              "Attacker"    "ATTACKER"
 	            }
 	          }
 	
 	          "Properties"
 	          {
-	            "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-80" 
+	            "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-100" 
 	
 	
 	          }
@@ -3521,7 +3520,7 @@
 	{
 		"BaseClass"             		"ability_datadriven"
 		"AbilityTextureName"			"oracle_false_promise"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastRange"				"1000 1000 1000"
 		"AbilityCastPoint"				"0.0"
@@ -3529,6 +3528,7 @@
 		"AbilityCooldown"				"0.0"
 		"AbilityManaCost"				"0"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AOERadius"						"%radius"
 	
 		"AbilitySpecial"
 		{
@@ -3542,7 +3542,7 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"3.0 4.0 5.0"
 			}
-			"03"
+			"03" 
 			{
 				"var_type"				"FIELD_INTEGER"
 				"heal"					"300 400 500"
@@ -3690,16 +3690,17 @@
 	{
 		"BaseClass"             		"ability_datadriven"
 		"AbilityTextureName"			"oracle_purifying_flames"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastRange"				"800 800 800 800"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCooldown"				"0.0"
 		"AbilityManaCost"				"0"
+		"AOERadius"						"100"
 	
 		"AbilitySpecial"
-		{
+		{ 
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -4447,6 +4448,127 @@
 	    	}
 	    }
 	}		
+	"shaman_buff"
+	{
+		"BaseClass"            			"ability_datadriven"
+	    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityTextureName"            "shadow_shaman_shackles"
+		"AbilityCooldown"				"0"
+	    "AOERadius"						"%radius"
+	
+	
+		"precache"
+		{
+			"particle"  "particles/items_fx/aura_endurance.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+	
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"armor"						"0.1 0.2 0.3 0.4"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"magic_res"					"0.2 0.3 0.5 0.6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400 500 600 700"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_charges"				"10 10 10 10"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"unit_charge"				"1 1 1 1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hero_charge"				"5 5 5 5"
+			}
+			
+		}
+		"OnUpgrade"
+	    {
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/shaman/shaman_buff"
+				"Function"		"main"
+			}
+	    }
+	
+		"Modifiers"
+		{
+			"shaman_buff_main"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"Aura"          	"shaman_buff_aura"
+				"Aura_Radius"   	"400 500 600 700"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+	            
+			}
+			"shaman_buff_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/items_fx/aura_endurance.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/shaman/shaman_buff"
+		        		"Function"		"sub_calculate"
+		        		//"Target"		"UNIT"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+		        	{
+		        		"ScriptFile"	"abilities/shaman/shaman_buff"
+		        		"Function"		"sub_add"
+		        		//"Target"		"UNIT"
+		        	}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+		        	{
+		        		"ScriptFile"	"abilities/shaman/shaman_buff"
+		        		"Function"		"sub_remove"
+		        		//"Target"		"UNIT"
+		        	}
+				}
+				"Properties"
+		        {
+		        	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+		            "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_res" 
+		        }
+			}
+		}	
+	}		
 	"shaman_disable"
 	{
 		"BaseClass"             		"ability_datadriven"
@@ -4490,17 +4612,17 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_per_stack"		"0.1 0.2 0.3 0.4"
+				"duration_per_stack"		"0.05 0.1 0.15 0.2"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"max_stacks"				"5 5 5 5"
+				"max_stacks"				"10 10 10 10"
 			}
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"500 600 700 800"
+				"radius"					"800 800 800 800"
 			}
 			"07"
 			{
@@ -4548,7 +4670,7 @@
 				"IsPurgable"		"0"
 				
 				"Aura"          	"shaman_disable_debuff"
-				"Aura_Radius"   	"%radius"
+				"Aura_Radius"   	"800 800 800 800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -4616,33 +4738,33 @@
 	    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	
 		"AbilityCooldown"				"%cooldown"
-		"AbilityCastPoint"       		"0.3"
+		"AbilityCastPoint"       		"0.2"
 		"AbilityManaCost"         		"0"
 		"AbilityCastRange" 				"600"
 	
-		
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"VALUE_INTEGER"
-				"radius"				"200 200 200 200"
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"200 200 200 200"
 			}
 			"02"
 			{
-				"var_type"				"VALUE_INTEGER"
-				"heal_per_ally"			"10 20 30 40"
+				"var_type"					"FIELD_INTEGER"
+				"heal_per_ally"				"10 20 30 40"
 			}
 			"03"
 			{
-				"var_type"				"VALUE_INTEGER"
-				"heal_base"				"50 100 150 200"
+				"var_type"					"FIELD_INTEGER"
+				"heal_base"					"50 100 150 200"
 			}
 			"04"
 			{
-				"var_type"				"VALUE_INTEGER"
-				"add_heal_percent"		"20 30 40 50"
+				"var_type"					"FIELD_INTEGER"
+				"add_heal_percent"			"20 30 40 50"
 			}
+	
 		}
 		"precache"
 		{
@@ -4683,4 +4805,140 @@
 			}
 		}
 	}
+	"shaman_ult"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityTextureName"			"shadow_shaman_mass_serpent_ward"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+		"AbilityCastPoint"				"0.40"
+		//"AbilityCastAnimation"0_CAST_ABILITY_4"
+	
+		"AbilityCooldown"				"0"
+	
+		"AbilityManaCost"				"0"
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_clinkz/clinkz_body_fire.vpcf"
+			"particle" "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+		}
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"summon_count"				"4 6 8"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"10.0 10.0 10.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"20 20 20"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/shaman/shaman_ult"
+				"Function"		"destroy_old"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/shaman/shaman_ult"
+				"Function"		"create"
+				"spawn_count"	"%summon_count"
+				"duration"		"%duration"
+			}
+	
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%damage"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/shaman/shaman_ult"
+				"Function"		"attack_land"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"shaman_ult_main"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+		
+				"ThinkInterval"  "0.02"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/shaman/shaman_ult"
+						"Function"		"move"
+						"Target"		"TARGET"
+					}
+				}
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/shaman/shaman_ult"
+						"Function"		"attack"
+					}
+				}
+			}
+			"shaman_ult_creature"
+			{
+				"Passive"                        "0"
+		        "IsHidden"                       "0"
+		        "IsPurgable"					 "0"
+		        "EffectName"		"particles/units/heroes/hero_clinkz/clinkz_body_fire.vpcf"
+				"EffectAttachType"	"follow_origin"
+		        "OnDestroy"
+		        {
+		        	"RunScript"
+		        	{
+		        		"ScriptFile"	"abilities/shaman/shaman_ult"
+		        		"Function"		"destroy_old"
+		        	}
+		      	}	          
+	
+		        "Properties"
+		        {
+		        	"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-100" 
+		        }
+		        "States"
+		        {
+		            "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
+		        }
+			}
+		}
+	
+	
+	}	
 }

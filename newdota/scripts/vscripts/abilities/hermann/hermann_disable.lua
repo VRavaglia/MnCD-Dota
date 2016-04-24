@@ -18,46 +18,22 @@ function start(keys)
 	local totem = Entities:FindByClassnameNearest("npc_dota_ward_base", Vector(target_pos.x, target_pos.y, target_pos.z), radius[1])
 
 	if totem then
-
 		local totem_pos = totem:GetAbsOrigin()
-
 		local distance = math.sqrt(((totem_pos.x - target_pos.x)^2) + ((totem_pos.y - target_pos.y)^2))
-
-
-		print(distance)
-
 		if distance <= radius[3] then
-
 			local duration = ability:GetLevelSpecialValueFor("duration_stun", level) 
 			ability:ApplyDataDrivenModifier(caster, target, "hermann_disable_stun", {duration = duration})
 			damage = max_damage
-
-			print("Stun")
-
-
-		elseif	distance <= radius[2] then
-
+		elseif distance <= radius[2] then
 			local duration = ability:GetLevelSpecialValueFor("duration_slow", level) 
 			ability:ApplyDataDrivenModifier(caster, target, "hermann_disable_slow_bonus", {duration = duration})
 			damage = damage + (max_damage - (max_damage*(distance/radius[1])))
-
-			print("Slow x 2")
-
 		else
-
 			local duration = ability:GetLevelSpecialValueFor("duration_slow", level) 
 			ability:ApplyDataDrivenModifier(caster, target, "hermann_disable_slow_base", {duration = duration})
 			damage = damage + (max_damage - (max_damage*(distance/radius[1])))
-
-			print("Slow")
-
 		end
-		
-
 	end
-
-	print(damage)
-
 	local damageTable = {
 				victim = target,
 				attacker = caster,
@@ -67,7 +43,4 @@ function start(keys)
 			}
 
 			ApplyDamage(damageTable)	
-
-
-
 end

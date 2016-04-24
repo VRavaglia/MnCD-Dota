@@ -8,11 +8,13 @@ function start(keys)
         local caster = keys.caster             
         local abilityLevel = (ability:GetLevel()- 1)
         local duration = ability:GetLevelSpecialValueFor("duration", abilityLevel)
+        ability.totem_origin = totem:GetAbsOrigin()
+        ability.caster = caster
     	ability:ApplyDataDrivenModifier(caster, totem, "hermann_ult_invulnerability", {duration = duration})
         ability:ApplyDataDrivenThinker(caster, Vector(point.x, point.y, point.z), "hermann_ult_thinker", {duration = duration})
-        ability.caster = caster
-        ability.totem_origin = totem:GetAbsOrigin()
-
+    else
+        ability:RefundManaCost()
+        ability:EndCooldown()
     end	 
 end
 
