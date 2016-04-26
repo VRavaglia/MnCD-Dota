@@ -1,0 +1,176 @@
+"hermann_buff"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"oracle_fates_edict"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam" 		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"  		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	"AbilityCooldown"				"%cooldown"
+	"AbilityCastPoint"       		"0.3"
+	"AbilityManaCost"         		"0"
+	"AbilityCastRange" 				"1000"
+	"AOERadius"						"%radius_buff"
+
+	"AbilitySpecial"
+	{	
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"heal_percent_base"  "0.25 0.5 0.75 1.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"heal_percent_buff"	"0.5 1.0 1.5 2.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius_buff"		"200 300 400 500"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"mana_percent_base"	"0.125 0.25 0.375 0.5"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"mana_percent_buff"	"0.25 0.5 0.75 1.0"
+		}
+		"06"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"duration"			"4 5 6 7"
+		}
+		"07"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"cooldown"			"2 2 2 2"
+		}
+
+
+	}
+
+	"precache"
+	{
+		"particle"  "particles/items3_fx/octarine_core_lifesteal.vpcf"
+
+	}
+
+	"OnUpgrade"
+	{
+		 "RunScript"
+		{
+			"ScriptFile"	"abilities/hermann/hermann_totem.lua"
+			"Function"		"create"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"RemoveModifier"
+		{
+			"ModifierName"	"hermann_buff_main"
+			"Target" 		"CASTER"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"	"hermann_buff_target"
+			"Target" 		"TARGET"
+			"Duration"		"%duration"
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"	"hermann_buff_cooldown"
+			"Target" 		"CASTER"
+			"Duration"		"%cooldown"
+		}
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/hermann/hermann_buff"
+			"Function"		"cast"
+		}
+	}
+
+
+	"Modifiers"
+	{
+		"hermann_buff_main"
+		{
+			"Passive"			"1"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"0"
+	
+			"ThinkInterval"  "0.25"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/hermann/hermann_buff.lua"
+					"Function"		"tick"
+				}
+			}
+		}
+		"hermann_buff_cooldown"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+			"IsPurgable"		"0"
+	
+			"OnDestroy"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"hermann_buff_main"
+					"Target" 		"CASTER"
+				}
+			}
+		}
+		"hermann_buff_target"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+	
+			"ThinkInterval"  "0.25"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"abilities/hermann/hermann_buff.lua"
+					"Function"		"tick_buff"
+				}
+			}
+		}
+		"hermann_buff_effect"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"IsDebuff"			"0"
+			"IsPurgable"		"0"
+
+			"EffectName"		"particles/items3_fx/octarine_core_lifesteal.vpcf"
+			"EffectAttachType"	"follow_origin"
+		}	
+		"OnCreated"
+
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "TARGET"
+			}
+		}
+	
+	}
+
+
+
+}

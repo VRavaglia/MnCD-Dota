@@ -1,0 +1,170 @@
+"henrique_aura"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"henrique_aura"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AoERadius"						"%radius"
+	"AbilityCastPoint"				"0.4"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+
+	"AbilityCooldown"				"100.0 80.0 60.0"
+
+	"AbilityManaCost"				"200.0 150.0 100.0"
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"400 500 600"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"damage_reduction"	"-50.0 -60.0 -70.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"duration"			"4 5 6"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"damage_reflected"	"60.0 70.0 80.0"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow"				"-30.0 -40.0 -50.0"
+		}
+		"06"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow_duration"		"5.0 5.0 5.0"
+		}
+
+	}
+	"precache"
+	{
+		"particle"  "particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+		"particle"  "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+	}
+
+	"OnSpellStart"
+	{
+		"AttachEffect"
+				{
+					"EffectName"      			"particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+		        	"EffectAttachType"    		"follow_origin"
+			        "EffectRadius"      		"%radius"
+			        "EffectDurationScale" 		"1"
+			        "EffectLifeDurationScale" 	"1"
+			        "EffectColorA"      		"50 255 255"
+			        "EffectColorB"      		"50 255 255"
+			        "Target"      				"CASTER"
+				}
+		"ApplyModifier"
+		{
+			"ModifierName"	"henrique_aura_buff"
+			"Target" 		"CASTER"
+			"Duration"		"%duration"
+		}
+		"ActOnTargets"
+		{
+			"Target"
+			{
+				"Center"  	"CASTER"
+				"Radius" 	"%radius"
+				"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+
+			"Action"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"henrique_aura_debuff"
+					"Target" 		"TARGET"
+					"Duration"		"%duration"
+				}
+			}
+		}
+	}
+
+	"Modifiers"
+	{
+		"henrique_aura_buff"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"0"
+			"IsPurgable"		"0"
+
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+			"Properties"
+            {
+                "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_reduction"
+            }
+
+
+		}
+		"henrique_aura_debuff"
+		{
+			"IsPurgable"		"0"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"IsStunDebuff"		"0"
+			"Passive"			"0"
+
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_charge_cracks_b_iron.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+			"OnDealDamage"
+			// "%attack_damage" is set to the damage value after mitigation
+			{
+				"RunScript"
+				{
+					"attacker"		"ATTACKER"
+					"ability"       "ability"
+					"attack_damage"	"%attack_damage"
+					"ScriptFile"	"abilities/henrique/henrique_aura.lua"
+					"Function"		"reflect"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"henrique_aura_slow"
+					"Target" 		"TARGET"
+					"Duration"		"%slow_duration"
+				}
+			}
+		}
+		"henrique_aura_slow"
+		{
+			"IsPurgable"		"1"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"IsStunDebuff"		"0"
+			"Passive"			"0"
+
+			"EffectName"		"particles/econ/items/spirit_breaker/spirit_breaker_iron_surge/spirit_breaker_iron_surge_ambient_fire.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+			"Properties"
+			{
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"
+			}
+
+		}
+	}
+}

@@ -1,0 +1,186 @@
+"gustavo_rocket"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"winter_wyvern_cold_embrace"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	
+
+	"AbilityCastRange"				"%range"
+	"AbilityCastPoint"				"0.3"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+	"AbilityCooldown"				"15.0 14.0 13.0 11.0"
+
+	"AbilityManaCost"				"90 110 130 150"
+	"AbilityDamage"					"%damage"
+
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"200 200 200 200"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"speed"				"1800 2400 3000 3600"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"range"				"800 1000 1200 1500"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow_duration"		"1.0 1.0 1.0 1.0"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"slow"				"-20 -20 -20 -20"
+		}
+		"06"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"damage_radius"		"500 500 500 500"
+		}
+		"07"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"thinker_duration"	"5.0 5.0 5.0 5.0"
+		}
+		"07"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"damage"			"60 120 180 240"
+		}
+
+
+
+	}
+
+		"precache"
+	{
+		"particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_initial_ti5.vpcf"
+		"particle"  "particles/units/heroes/hero_tusk/tusk_frozen_sigil_status.vpcf"
+		"particle"  "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
+		"particle"  "particles/units/heroes/hero_tusk/tusk_frozen_sigil.vpcf"
+		
+	}
+
+	"OnSpellStart"
+    {
+        "LinearProjectile"
+        {
+            "Target" "POINT"
+            "EffectName" "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_initial_ti5.vpcf"
+            "MoveSpeed" "%speed"
+            "StartRadius" "125"
+            "StartPosition" "attach_origin"
+            "EndRadius" "125"
+            //"FixedDistance" "500"
+            "TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+            "TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
+            "HasFrontalCone" "0"
+            "ProvidesVision" "1"
+            "VisionRadius" "300"
+        }
+    }
+
+    "OnProjectileHitUnit"
+    {
+        "DeleteOnHit" "0"
+        "ApplyModifier"
+        {
+        	"ModifierName"	"gustavo_rocket_slow"
+        	"Target" 		"TARGET"
+        	"Duration"		"%slow_duration"
+        }
+    }
+
+    "OnProjectileFinish"
+    {
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center" "POINT"
+                "Radius" "%damage_radius"
+                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+            }
+            "Action"
+            {
+                "RunScript"
+                {
+                	"ScriptFile"	"abilities/gustavo/gustavo_rocket"
+                	"Function"		"damage"
+                }
+            }
+        }
+        "CreateThinker"
+        {
+        	"ModifierName"	"gustavo_rocket_aura"
+        	"Target" 		"POINT"
+
+        }
+        "FireEffect"
+        {
+        	"EffectName"        "particles/econ/items/ancient_apparition/aa_blast_ti_5/ancient_apparition_ice_blast_explode_ti5.vpcf"
+        	"EffectAttachType"  "follow_origin"
+        	"Target"            "POINT"
+        	"ControlPoints"
+    		{
+       		 	"00" "0 0 0"
+       		 	"03" "0 0 0"
+   			}
+        }
+    }
+
+	"Modifiers"
+
+	{
+		"gustavo_rocket_slow"
+		{
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+			"IsPurgable"		"1"
+
+			"EffectName"		"particles/units/heroes/hero_tusk/tusk_frozen_sigil_status.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+				
+		
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+			}
+		}
+		"gustavo_rocket_aura"
+		{
+			"Aura"          	"gustavo_rocket_slow"
+			"Aura_Radius"   	"%damage_radius"
+			"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+			"Aura_ApplyToCaster" "0"
+			"Duration"			"%thinker_duration"
+			
+			"EffectName"		"particles/units/heroes/hero_tusk/tusk_frozen_sigil.vpcf"
+			"EffectAttachType"	"follow_origin"
+		}
+	}
+									
+
+}
+

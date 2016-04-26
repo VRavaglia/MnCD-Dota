@@ -1,0 +1,126 @@
+"diego_buff"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"nevermore_dark_lord"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AbilityType"            		"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityCastPoint"    		    "0.0"
+
+
+
+
+	"AbilityManaCost"     		    "50 60 70 90"
+	"AbilityCooldown"        		"13.0 12.0 11.0 10.0"
+
+	"precache"
+	{
+		"particle"  "particles/econ/courier/courier_golden_roshan/golden_roshan_ambient.vpcf"
+		"particle"  "particles/units/heroes/hero_bloodseeker/bloodseeker_silenced.vpcf"
+	}
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration_caster"  	"5.0 5.0 5.0 5.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"damage"		    "80 120 160 200"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration_target"	"2.0 3.0 4.0 5.0"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"attackspeed"		"100 100 100 100"
+		}
+		"05"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"movespeed"			"20 25 30 35"
+		}
+	}
+
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"  		"CASTER"
+			"ModifierName"	"diego_buff"
+			"Duration"		"%duration_caster"
+		}
+
+	}
+
+	"Modifiers"
+	{
+		"diego_buff"
+		{
+			"TextureName"      "nevermore_dark_lord"
+			"IsBuff"		   "1"
+			"IsPurgable"	   "1"
+
+			"EffectName"       "particles/econ/courier/courier_golden_roshan/golden_roshan_ambient.vpcf"
+   			"EffectAttachType" "follow_origin"
+
+   			"Properties"
+   			{
+   				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
+   			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed" 
+   			}
+
+   			"OnAttackLanded"
+   			{
+   				"Damage"
+   				{
+   					"Target"		"TARGET"
+   					"Type"			"DAMAGE_TYPE_MAGICAL"
+   					"Damage"		"%damage"
+   				}
+   				"ApplyModifier"
+   				{
+   					"ModifierName"	"diego_silence"
+   					"Target" 		"TARGET"
+   					"Duration"		"%duration_target"
+   				}
+   				"RemoveModifier"
+   				{
+   					"ModifierName"	"diego_buff"
+   					"Target" 		"CASTER"
+   				}
+   				"RunScript"
+   				{
+   					"Target"		"TARGET"
+					"ScriptFile"	"abilities/diego/diego_midas"
+					"Function"		"midas"
+   				}
+   			}
+
+		}
+		
+		"diego_silence"
+		{
+			"TextureName"      "nevermore_dark_lord"
+			"IsDebuff"		   "1"
+			"IsPurgable"	   "1"
+
+			"EffectName"       "particles/units/heroes/hero_bloodseeker/bloodseeker_silenced.vpcf"
+   			"EffectAttachType" "follow_overhead"
+			"States"
+			{
+				"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+		
+
+	}
+
+
+}

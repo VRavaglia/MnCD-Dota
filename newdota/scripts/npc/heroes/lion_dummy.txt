@@ -1,0 +1,24 @@
+"npc_dota_hero_ancient_apparition_barebones"
+  {
+    "override_hero"     "npc_dota_hero_lion"
+
+    "StatusHealth"                "10000"
+    "StatusHealthRegen"           "0"      
+    "StatusMana"                  "10000"      
+    "StatusManaRegen"             "0"
+
+    "ArmorPhysical"                "0"
+    "MagicalResistance"            "0" 
+
+    "AttributeBaseStrength"      "0"                   
+    "AttributeStrengthGain"      "0"                   
+    "AttributeBaseIntelligence"  "0"                   
+    "AttributeIntelligenceGain"  "0"                   
+    "AttributeBaseAgility"       "0"                  
+    "AttributeAgilityGain"       "0" 
+
+
+
+    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
+  }
