@@ -42,3 +42,10 @@ function tick_buff(keys)
 	end	
 
 end
+
+function cast(keys)
+	local ability = keys.ability
+	local level = ability:GetLevel() - 1
+	local cooldown = ability:GetLevelSpecialValueFor("cooldown", level)
+	ability:StartCooldown(cooldown)
+end

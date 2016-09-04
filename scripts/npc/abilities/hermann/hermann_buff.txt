@@ -56,7 +56,7 @@
 
 	"precache"
 	{
-		"particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+		"particle"  "particles/items3_fx/octarine_core_lifesteal.vpcf"
 
 	}
 
@@ -88,7 +88,13 @@
 			"Target" 		"CASTER"
 			"Duration"		"%cooldown"
 		}
+		"RunScript"
+		{
+			"ScriptFile"	"abilities/hermann/hermann_buff"
+			"Function"		"cast"
+		}
 	}
+
 
 	"Modifiers"
 	{
@@ -112,7 +118,7 @@
 		"hermann_buff_cooldown"
 		{
 			"Passive"			"0"
-			"IsHidden"			"0"
+			"IsHidden"			"1"
 			"IsDebuff"			"0"
 			"IsPurgable"		"0"
 	
@@ -145,11 +151,11 @@
 		"hermann_buff_effect"
 		{
 			"Passive"			"0"
-			"IsHidden"			"0"
+			"IsHidden"			"1"
 			"IsDebuff"			"0"
-			"IsPurgable"		"1"
+			"IsPurgable"		"0"
 
-			"EffectName"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+			"EffectName"		"particles/items3_fx/octarine_core_lifesteal.vpcf"
 			"EffectAttachType"	"follow_origin"
 		}	
 		"OnCreated"
