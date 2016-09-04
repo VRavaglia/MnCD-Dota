@@ -1,0 +1,128 @@
+"paladin_aura"
+{
+	"BaseClass"             		"ability_datadriven"
+	"AbilityTextureName"			"omniknight_degen_aura"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AURA"
+	"AbilityType"            		"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityCooldown"				"%cooldown"
+	"AbilityCastPoint"       		"0.3"
+	"AbilityManaCost"         		"60 70 80 90"
+	"AbilityDamage"					"15 25 35 45"
+	"AbilityCastRange" 				"%radius"
+
+	"AbilityCastAnimation"   		"ACT_DOTA_CAST_ABILITY_2"
+
+	"AnimationPlaybackRate" "2"
+
+
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"slow"  			"-25.0 -30.0 -35.0 -40.0"
+		}
+		"02"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"duration"			"5.5 6.0 6.5 7.0"
+		}
+		"03"
+		{
+			"var_type"			"FIELD_FLOAT"
+			"cooldown"			"14.0 13.0 12.0 11.0"
+		}
+		"04"
+		{
+			"var_type"			"FIELD_INTEGER"
+			"radius"			"250 300 350 400"
+		}
+	}
+
+	"precache"
+	{
+		"particle"  "particles/units/heroes/hero_omniknight/omniknight_degen_aura.vpcf"
+		"particle"  "particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+		"particle"  "particles/econ/items/dazzle/dazzle_dark_light_weapon/dazzle_dark_shallow_grave_ground.vpcf"
+
+	}
+
+
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"ModifierName"	"paladin_aura_main"
+			"Target" 		"CASTER"
+			"Duration"		"%duration"
+		}
+	}
+
+	"Modifiers"
+	{
+		"paladin_aura"
+		{
+			"TextureName"      "omniknight_degen_aura"
+
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsDebuff"			"1"
+			"IsPurgable"		"1"
+	
+			"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_degen_aura.vpcf"
+			"EffectAttachType"	"follow_origin"
+	
+			"Properties"
+			{ 
+			    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+			}
+		}
+		"paladin_aura_main"
+		{
+			"TextureName"      "omniknight_degen_aura"
+
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsPurgable"		"0"
+	
+			"EffectName"		"particles/econ/items/dazzle/dazzle_dark_light_weapon/dazzle_dark_shallow_grave_ground.vpcf"
+			"EffectAttachType"	"follow_origin"
+
+			"ThinkInterval"  "0.5"
+		
+			"OnIntervalThink"
+			{
+				
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"  	"CASTER"
+						"Radius" 	"%radius"
+						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					}
+				
+					"Action"    
+					{
+						"ApplyModifier"
+						{
+							"ModifierName"	"paladin_aura"
+							"Target" 		"TARGET"
+							"Duration"		"2.0"
+						}
+						"Damage"
+						{
+							"Target"		"TARGET"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Damage"		"%AbilityDamage"
+						}
+					}
+				}	
+			}
+		}
+	}
+}
+
+
+	
